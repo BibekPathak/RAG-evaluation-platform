@@ -1,0 +1,6 @@
+node_modules
+dist
+.env
+*.db
+chroma_db
+qdrant_storage

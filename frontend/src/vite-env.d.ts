@@ -1,0 +1,2 @@
+module = 'ESNext'
+moduleResolution = 'bundler'
