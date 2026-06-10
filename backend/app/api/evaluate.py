@@ -9,7 +9,8 @@ from app.models.schemas import (
     GenerationEvaluationRequest,
     RetrievalMetrics,
     GenerationMetrics,
-    MetricsSummary
+    MetricsSummary,
+    ExperimentCreate
 )
 from app.services.retrieval_eval import RetrievalEvalService
 from app.services.generation_eval import GenerationEvalService

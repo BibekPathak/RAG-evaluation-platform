@@ -80,7 +80,7 @@ async def list_datasets(
     limit: int = 100,
     db = Depends(get_db)
 ):
-    datasets = db.query(Dataset).offset(skip).limit(limit).order_by(Dataset.created_at.desc()).all()
+    datasets = db.query(Dataset).order_by(Dataset.created_at.desc()).offset(skip).limit(limit).all()
     return [
         DatasetResponse(
             id=d.id,

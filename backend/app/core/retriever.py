@@ -43,7 +43,7 @@ class ChromaAdapter(VectorDBAdapter):
             self.create_collection()
         
         ids = [f"doc_{i}" for i in range(len(texts))]
-        metadatas = metadata or [{} for _ in texts]
+        metadatas = metadata if metadata else None
         
         self.collection.add(
             ids=ids,
@@ -163,7 +163,7 @@ class FAISSAdapter(VectorDBAdapter):
         
         self.index.add(embeddings_array)
         self.texts.extend(texts)
-        self.metadata.extend(metadata or [{} for _ in texts])
+        self.metadata.extend(metadata if metadata else [{} for _ in texts])
         
         return f"Added {len(texts)} documents"
 

@@ -8,6 +8,7 @@ class Settings(BaseSettings):
     
     openai_api_key: str = ""
     anthropic_api_key: str = ""
+    huggingface_api_key: str = ""
     
     qdrant_url: str = "http://localhost:6333"
     qdrant_api_key: str = ""
@@ -21,6 +22,8 @@ class Settings(BaseSettings):
     otel_exporter_otlp_endpoint: str = "http://localhost:4317"
     
     default_embedding_model: str = "text-embedding-3-small"
+    hf_embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
+    hf_llm_model: str = "meta-llama/Llama-3.1-8B-Instruct"
     default_llm: str = "gpt-4o"
     
     class Config:

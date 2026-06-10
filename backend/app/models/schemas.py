@@ -169,7 +169,7 @@ class JudgeRequest(BaseModel):
     ground_truth_answer: str
     generated_answer: str
     context: List[str] = []
-    judge_model: str = "gpt-4o"
+    judge_model: str = "mock"
 
 
 class JudgeResponse(BaseModel):
