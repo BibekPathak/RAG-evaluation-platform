@@ -19,12 +19,12 @@ function App() {
                   </div>
                   <span className="text-white font-semibold text-lg">RAG Eval</span>
                 </Link>
-                <div className="hidden md:flex space-x-1">
-                  <Link to="/" className="nav-link">Dashboard</Link>
-                  <Link to="/experiments" className="nav-link">Experiments</Link>
-                  <Link to="/benchmark" className="nav-link">Benchmark</Link>
-                  <Link to="/datasets" className="nav-link">Datasets</Link>
-                  <Link to="/hallucination" className="nav-link">Hallucination</Link>
+                <div className="hidden md:flex items-center gap-6">
+                  <Link to="/" className="nav-link px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-700/50 transition-colors">Dashboard</Link>
+                  <Link to="/experiments" className="nav-link px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-700/50 transition-colors">Experiments</Link>
+                  <Link to="/benchmark" className="nav-link px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-700/50 transition-colors">Benchmark</Link>
+                  <Link to="/datasets" className="nav-link px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-700/50 transition-colors">Datasets</Link>
+                  <Link to="/hallucination" className="nav-link px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-700/50 transition-colors">Hallucination</Link>
                 </div>
               </div>
             </div>
