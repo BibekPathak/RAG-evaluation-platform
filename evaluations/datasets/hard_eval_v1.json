@@ -1,0 +1,162 @@
+[
+  {
+    "id": "hard_001",
+    "question": "How does batch normalization differ from layer normalization in transformer architectures?",
+    "answer": "Batch normalization normalizes across the batch dimension and is dependent on batch size, while layer normalization normalizes across the feature dimension independently of batch size.",
+    "context": "In transformer models, batch normalization normalizes activations across the batch dimension, making it sensitive to batch size and causing training instability in small batches. Layer normalization, used in most transformers, normalizes across the feature dimension for each individual example, making it batch-size independent and more stable.",
+    "difficulty": "hard",
+    "category": "deep_learning"
+  },
+  {
+    "id": "hard_002",
+    "question": "What causes vanishing and exploding gradients in deep neural networks and how do LSTMs address this?",
+    "answer": "Vanishing and exploding gradients occur when gradients become exponentially small or large during backpropagation through deep networks. LSTMs use gating mechanisms and constant error carousel to maintain gradient flow.",
+    "context": "In deep networks, repeated multiplication during backpropagation causes gradients to shrink (vanishing) or grow (exploding). LSTMs address this through input, forget, and output gates that control information flow. The forget gate's linear self-loop maintains constant error, enabling learning of long-term dependencies.",
+    "difficulty": "hard",
+    "category": "deep_learning"
+  },
+  {
+    "id": "hard_003",
+    "question": "Explain the VC dimension and its relationship to generalization in machine learning.",
+    "answer": "VC dimension measures the capacity of a learning model to shatter (perfectly classify) a set of points. Lower VC dimension means better generalization from limited data.",
+    "context": "Vapnik-Chervonenkis (VC) dimension quantifies the complexity of a hypothesis space. Models with infinite VC dimension (like neural networks) can shatter any dataset but may overfit. Structural risk minimization trades off model complexity against empirical risk to improve generalization.",
+    "difficulty": "hard",
+    "category": "theory"
+  },
+  {
+    "id": "hard_004",
+    "question": "What is the reparameterization trick and why is it essential for variational autoencoders?",
+    "answer": "The reparameterization trick samples from the latent distribution by expressing random variables as deterministic functions of learnable parameters plus independent noise, enabling gradient-based optimization.",
+    "context": "Variational autoencoders require sampling from a stochastic latent distribution, which breaks gradient flow. The reparameterization trick separates stochasticity by sampling noise ε from a fixed distribution and computing z = μ + σ × ε. This makes sampling differentiable with respect to μ and σ.",
+    "difficulty": "hard",
+    "category": "generative_models"
+  },
+  {
+    "id": "hard_005",
+    "question": "How does attention complexity scale with sequence length in transformers?",
+    "answer": "Standard self-attention scales quadratically O(n²) with sequence length due to pairwise attention score computation, while linear attention methods achieve O(n) complexity.",
+    "context": "Standard multi-head attention computes pairwise dot products between all positions, resulting in O(n²) time and memory complexity. This limits max sequence length and increases compute costs. Linear attention methods (Performer, Linformer) approximate attention to achieve O(n) scaling using kernel methods or low-rank approximations.",
+    "difficulty": "hard",
+    "category": "transformers"
+  },
+  {
+    "id": "hard_006",
+    "question": "What is the posterior collapse problem in VAEs and how can it be mitigated?",
+    "answer": "Posterior collapse occurs when the variational posterior matches the prior too closely, causing the decoder to ignore latent codes. Mitigation includes KL annealing, weakening the decoder, or using auxiliary objectives.",
+    "context": "Posterior collapse happens when powerful decoders learn to ignore latent codes, causing q(z|x) ≈ p(z). This defeats VAE's purpose of learning meaningful representations. Solutions include: KL annealing schedules that gradually increase KL weight, using weaker decoders, skip connections, or auxiliary losses that encourage informative latents.",
+    "difficulty": "hard",
+    "category": "generative_models"
+  },
+  {
+    "id": "hard_007",
+    "question": "Explain the difference between causal and masked self-attention in language models.",
+    "answer": "Causal attention only attends to previous tokens preventing look-ahead, while masked attention hides future tokens during training to prevent information leakage.",
+    "context": "In autoregressive language models, causal attention ensures each position only attends to itself and earlier positions. This is implemented via triangular masking. In encoder models, full (bidirectional) attention allows seeing all tokens. Encoder-decoder models use cross-attention where queries attend to all encoder positions.",
+    "difficulty": "hard",
+    "category": "transformers"
+  },
+  {
+    "id": "hard_008",
+    "question": "What is the no-free-lunch theorem and what are its implications for algorithm selection?",
+    "answer": "The no-free-lunch theorem states no algorithm outperforms others across all possible problems. This implies the need for problem-specific algorithm selection based on domain knowledge.",
+    "context": "NFL theorems prove that averaged over all possible loss functions, all learning algorithms have identical generalization error. This means algorithm performance is problem-dependent. Practical implication: evaluate multiple algorithms on specific tasks rather than assuming universal superiority. Domain knowledge guides algorithm selection.",
+    "difficulty": "hard",
+    "category": "theory"
+  },
+  {
+    "id": "hard_009",
+    "question": "How does gradient accumulation enable training with larger effective batch sizes?",
+    "answer": "Gradient accumulation splits large batches into smaller mini-batches, accumulating gradients across steps before updating weights, simulating larger batch training with limited memory.",
+    "context": "When GPU memory limits batch size, gradient accumulation processes samples in smaller increments. After each small batch, gradients are stored rather than applied. Once accumulated gradients match desired batch size, an optimizer step executes. This enables effective batch sizes exceeding GPU memory capacity.",
+    "difficulty": "hard",
+    "category": "optimization"
+  },
+  {
+    "id": "hard_010",
+    "question": "What is mode collapse in GANs and what techniques address it?",
+    "answer": "Mode collapse occurs when the generator produces limited varieties of samples, missing modes of the data distribution. Mitigation includes unrolling, minibatch discrimination, and spectral normalization.",
+    "context": "Mode collapse happens when the generator learns to produce only a subset of the true data distribution, especially when discriminator gets stuck. Techniques addressing this: minibatch discrimination (let discriminator see batch statistics), unrolled GANs (optimize discriminator for future steps), spectral normalization (Lipschitz continuity), and progressive growing.",
+    "difficulty": "hard",
+    "category": "generative_models"
+  },
+  {
+    "id": "hard_011",
+    "question": "Explain the relationship between the lottery ticket hypothesis and neural network pruning.",
+    "answer": "The lottery ticket hypothesis suggests dense networks contain sparse subnetworks (winning tickets) that train alone to reach original accuracy. Pruning identifies these tickets by removing low-magnitude weights.",
+    "context": "The lottery ticket hypothesis (Frankle & Carbin) states that randomly initialized networks contain subnetworks that, when trained in isolation, match the original network's performance. Finding these tickets involves iterative magnitude pruning: train, prune lowest weights, rewind to original initialization, repeat. This justifies why some overparameterized networks work.",
+    "difficulty": "hard",
+    "category": "theory"
+  },
+  {
+    "id": "hard_012",
+    "question": "What are contrastive learning losses and how do they learn representations?",
+    "answer": "Contrastive losses learn embeddings by maximizing similarity between positive pairs (same identity) while minimizing similarity between negative pairs (different identity).",
+    "context": "Contrastive learning (SimCLR, MoCo) learns representations by contrasting positive pairs against negative pairs. Positive pairs are augmented views of the same image. Negative pairs are different images. The loss encourages similar representations for positives and dissimilar for negatives. This self-supervised approach learns useful features without labels.",
+    "difficulty": "hard",
+    "category": "self_supervised"
+  },
+  {
+    "id": "hard_013",
+    "question": "How does mixed precision training improve computational efficiency?",
+    "answer": "Mixed precision training uses lower-precision formats (FP16/BF16) for most operations while maintaining FP32 for sensitive computations, reducing memory and increasing throughput.",
+    "context": "Mixed precision training keeps master weights in FP32 for gradient updates while using FP16/BF16 for forward/backward passes. This reduces memory footprint by half, allows larger batch sizes, and tensor cores accelerate FP16 matrix operations. Loss scaling prevents gradient underflow in FP16.",
+    "difficulty": "hard",
+    "category": "optimization"
+  },
+  {
+    "id": "hard_014",
+    "question": "What is the purpose of warmup learning rate schedules in transformer training?",
+    "answer": "Warmup gradually increases learning rate from small to target value, preventing optimizer instability from large gradient updates early in training.",
+    "context": "Transformer training suffers from unstable early optimization due to changing layer activations and gradient magnitudes. Warmup addresses this by starting with tiny learning rate and gradually increasing to target value. This allows optimizer to find stable direction before taking large steps. Linear or cosine warmup followed by decay is standard.",
+    "difficulty": "hard",
+    "category": "optimization"
+  },
+  {
+    "id": "hard_015",
+    "question": "Explain label smoothing and its regularization effect in classification models.",
+    "answer": "Label smoothing replaces hard one-hot labels with soft distributions, preventing overconfidence and improving generalization by acting as a regularizer.",
+    "context": "Instead of target probability 1.0 for correct class and 0.0 for others, label smoothing uses values like 0.95 for correct and 0.05/(n-1) for incorrect. This prevents model from becoming overconfident, improves calibration, and acts as regularization. Typically improves generalization by 0.5-1% on ImageNet.",
+    "difficulty": "medium",
+    "category": "regularization"
+  },
+  {
+    "id": "hard_016",
+    "question": "What is the difference between few-shot, zero-shot, and zero-shot transfer learning?",
+    "answer": "Zero-shot learns without task-specific examples, few-shot learns from 1-N examples, and zero-shot transfer uses learned representations to recognize completely unseen classes.",
+    "context": "Zero-shot learning recognizes classes never seen during training by relying on attribute descriptions. Few-shot learning (N-way K-shot) trains on 1-N examples per class. Zero-shot transfer applies knowledge from source tasks to entirely different target tasks without task-specific training examples. GPT models excel at zero-shot tasks.",
+    "difficulty": "medium",
+    "category": "transfer_learning"
+  },
+  {
+    "id": "hard_017",
+    "question": "How does momentum-based optimization differ from standard gradient descent?",
+    "answer": "Momentum accelerates convergence by accumulating velocity in directions of persistent gradient descent, dampening oscillations and speeding up ravines.",
+    "context": "Standard gradient descent uses only current gradient. Momentum maintains velocity vector, updating as combination of current gradient and accumulated past gradients (typically with 0.9 decay). This builds up velocity in consistent directions and cancels oscillations in conflicting directions. Equivalent to rolling ball with inertia.",
+    "difficulty": "medium",
+    "category": "optimization"
+  },
+  {
+    "id": "hard_018",
+    "question": "What is curriculum learning and how does it affect training dynamics?",
+    "answer": "Curriculum learning trains on easy examples first, gradually increasing difficulty. This provides better gradient direction early and can improve convergence and final performance.",
+    "context": "Curriculum learning presents training examples in increasing difficulty order, like human education. Easy examples provide meaningful gradients early. As training progresses, harder examples refine decision boundaries. Benefits include faster convergence and better final performance, though optimal curriculum scheduling is nontrivial.",
+    "difficulty": "medium",
+    "category": "training_strategies"
+  },
+  {
+    "id": "hard_019",
+    "question": "Explain the beam search decoding strategy and its relationship to greedy decoding.",
+    "answer": "Beam search maintains k (beam width) partial hypotheses at each step, exploring multiple likely sequences instead of greedy single best, trading compute for quality.",
+    "context": "Greedy decoding selects highest probability token at each step, missing better sequences requiring early sacrifice. Beam search maintains k best partial sequences, exploring branches. At each step, expand all beams, keep top k by cumulative probability. Higher beam width improves quality but increases computation linearly, not exponentially.",
+    "difficulty": "medium",
+    "category": "decoding"
+  },
+  {
+    "id": "hard_020",
+    "question": "What is teacher-student knowledge distillation in neural networks?",
+    "answer": "Knowledge distillation transfers learned representations from a large teacher model to a smaller student model by training the student on teacher soft predictions.",
+    "context": "Knowledge distillation trains a smaller student network using a larger teacher model's soft probability outputs as targets. Beyond hard labels, student learns from teacher's uncertainty (dark knowledge). Temperature scaling in softmax controls smoothness of teacher predictions. This compresses knowledge into deployable models.",
+    "difficulty": "medium",
+    "category": "model_compression"
+  }
+]

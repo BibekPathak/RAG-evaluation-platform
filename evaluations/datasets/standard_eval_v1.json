@@ -1,0 +1,352 @@
+[
+  {
+    "id": "std_001",
+    "question": "What is machine learning?",
+    "answer": "Machine learning is a subset of artificial intelligence that enables systems to learn and improve from experience without being explicitly programmed, using algorithms to identify patterns in data.",
+    "context": "Machine learning (ML) is a subset of artificial intelligence (AI) that allows software applications to become more accurate at predicting outcomes without being explicitly programmed. ML algorithms use historical data as input to predict new output values.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "std_002",
+    "question": "What are the main types of machine learning?",
+    "answer": "The three main types of machine learning are supervised learning, unsupervised learning, and reinforcement learning.",
+    "context": "Machine learning can be categorized into three main types: supervised learning (training with labeled data), unsupervised learning (finding patterns in unlabeled data), and reinforcement learning (learning through trial and error with rewards).",
+    "difficulty": "easy"
+  },
+  {
+    "id": "std_003",
+    "question": "What is supervised learning?",
+    "answer": "Supervised learning is a machine learning approach where algorithms learn from labeled training data and make predictions based on that data.",
+    "context": "Supervised learning is a machine learning paradigm where algorithms learn from labeled training examples. The algorithm receives input-output pairs and learns to map inputs to outputs. Examples include classification and regression tasks.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "std_004",
+    "question": "What is unsupervised learning?",
+    "answer": "Unsupervised learning is a type of machine learning that finds patterns in data without labeled responses, using techniques like clustering and dimensionality reduction.",
+    "context": "Unsupervised learning is a type of ML that works with unlabeled data. The system tries to learn without a teacher. Common techniques include clustering, anomaly detection, and dimensionality reduction.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "std_005",
+    "question": "What is the difference between classification and regression?",
+    "answer": "Classification predicts discrete categorical labels while regression predicts continuous numerical values.",
+    "context": "Classification and regression are supervised learning techniques. Classification predicts categorical outcomes (spam/not spam), while regression predicts continuous numerical values (house prices, temperature).",
+    "difficulty": "easy"
+  },
+  {
+    "id": "std_006",
+    "question": "What is a neural network?",
+    "answer": "A neural network is a computing system inspired by biological neural networks, consisting of interconnected nodes (neurons) organized in layers that process data using connectionist approaches.",
+    "context": "Neural networks are computing systems inspired by biological neural networks. They consist of nodes (neurons) organized in layers: input layer, hidden layers, and output layer. Connections between neurons have weights that are adjusted during learning.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "std_007",
+    "question": "What is deep learning?",
+    "answer": "Deep learning is a subset of machine learning using artificial neural networks with multiple hidden layers to learn hierarchical representations of data.",
+    "context": "Deep learning is a specialized form of machine learning using neural networks with many layers (deep networks). These networks automatically learn hierarchical features from raw data, eliminating the need for manual feature engineering.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "std_008",
+    "question": "What is overfitting in machine learning?",
+    "answer": "Overfitting occurs when a model learns the training data too well, including noise and outliers, reducing its ability to generalize to new data.",
+    "context": "Overfitting happens when an ML model learns the training data too thoroughly, including noise and random fluctuations. This causes poor performance on new, unseen data. Techniques like cross-validation and regularization help prevent overfitting.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "std_009",
+    "question": "What is underfitting?",
+    "answer": "Underfitting occurs when a model is too simple to capture patterns in the data, performing poorly on both training and test data.",
+    "context": "Underfitting occurs when a model is too simple to learn the underlying patterns in data. It fails to capture relevant features, resulting in poor performance on both training and test datasets. More complex models or additional features can help address underfitting.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "std_010",
+    "question": "What is cross-validation?",
+    "answer": "Cross-validation is a technique where data is split into multiple folds, training on some folds and validating on others to assess model performance.",
+    "context": "Cross-validation is a resampling procedure to evaluate ML models. The data is divided into k folds. The model trains on k-1 folds and validates on the remaining fold. This process repeats k times, and results are averaged.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "std_011",
+    "question": "What is a confusion matrix?",
+    "answer": "A confusion matrix is a table that visualizes the performance of a classification algorithm by showing true vs predicted classifications.",
+    "context": "A confusion matrix is a specific table layout that visualizes algorithm performance. For binary classification, it shows four metrics: true positives, true negatives, false positives, and false negatives. Derived metrics include accuracy, precision, recall, and F1 score.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "std_012",
+    "question": "What is precision in machine learning evaluation?",
+    "answer": "Precision is the ratio of correctly predicted positive observations to total predicted positives, measuring prediction accuracy.",
+    "context": "Precision measures how accurate a model's positive predictions are. It equals true positives divided by (true positives + false positives). High precision means low false positive rate.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "std_013",
+    "question": "What is recall?",
+    "answer": "Recall measures how many actual positive cases the model correctly identified, calculated as true positives divided by all actual positives.",
+    "context": "Recall, also called sensitivity, measures a model's ability to find all relevant instances. It equals true positives divided by (true positives + false negatives). High recall means most positive cases are captured.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "std_014",
+    "question": "What is the F1 score?",
+    "answer": "The F1 score is the harmonic mean of precision and recall, providing a balanced measure of a model's accuracy.",
+    "context": "F1 score is the harmonic mean of precision and recall, calculated as 2 × (precision × recall) / (precision + recall). It combines both metrics into a single score, useful when you need a balanced view.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "std_015",
+    "question": "What is gradient descent?",
+    "answer": "Gradient descent is an optimization algorithm that minimizes a function by iteratively moving in the direction of steepest descent as defined by the negative gradient.",
+    "context": "Gradient descent is an optimization algorithm used to minimize cost functions. It iteratively adjusts parameters in the direction of steepest descent (negative gradient). Learning rate controls step size. Variants include batch, stochastic, and mini-batch gradient descent.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "std_016",
+    "question": "What is a loss function?",
+    "answer": "A loss function measures how well a model's predictions match the actual values, with lower values indicating better performance.",
+    "context": "A loss (cost) function quantifies how wrong a model's predictions are. The goal during training is to minimize this function. Examples include mean squared error for regression and cross-entropy loss for classification.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "std_017",
+    "question": "What is regularization in machine learning?",
+    "answer": "Regularization adds a penalty term to the loss function to prevent overfitting by discouraging overly complex models.",
+    "context": "Regularization techniques prevent overfitting by adding penalty terms to the loss function. L1 regularization (Lasso) adds absolute value of coefficients. L2 regularization (Ridge) adds squared coefficients. Elastic net combines both.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "std_018",
+    "question": "What is a decision tree?",
+    "answer": "A decision tree is a supervised learning algorithm that splits data into branches based on feature values, making decisions through a series of if-else rules.",
+    "context": "Decision trees are supervised learning algorithms used for classification and regression. They split data based on feature values, creating a tree structure of decisions. Each internal node represents a feature, each branch a decision rule, and each leaf an outcome.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "std_019",
+    "question": "What is random forest?",
+    "answer": "Random forest is an ensemble learning method that builds multiple decision trees and combines their predictions for more accurate results.",
+    "context": "Random forest is an ensemble method that builds many decision trees during training. Each tree makes a prediction, and the final prediction is the majority vote (classification) or average (regression). It reduces overfitting and increases accuracy.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "std_020",
+    "question": "What is ensemble learning?",
+    "answer": "Ensemble learning combines multiple machine learning models to improve prediction accuracy and robustness.",
+    "context": "Ensemble learning combines predictions from multiple models to improve accuracy. Techniques include bagging (parallel models, e.g., Random Forest), boosting (sequential models, e.g., XGBoost), and stacking (using model outputs as inputs to another model).",
+    "difficulty": "medium"
+  },
+  {
+    "id": "std_021",
+    "question": "What is K-means clustering?",
+    "answer": "K-means is an unsupervised algorithm that partitions data into K clusters by minimizing within-cluster variance.",
+    "context": "K-means clustering is an unsupervised algorithm that divides data into K clusters. It works by: 1) randomly initializing K centroids, 2) assigning points to nearest centroid, 3) updating centroids based on cluster members, 4) repeating until convergence.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "std_022",
+    "question": "What is principal component analysis (PCA)?",
+    "answer": "PCA is a dimensionality reduction technique that transforms data to a new coordinate system, capturing maximum variance with fewer features.",
+    "context": "Principal Component Analysis (PCA) reduces data dimensionality by transforming to new variables (principal components). The first component captures maximum variance, second captures next most, and so on. It helps visualize high-dimensional data and reduce noise.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "std_023",
+    "question": "What is a support vector machine?",
+    "answer": "SVM is a supervised learning algorithm that finds the optimal hyperplane to separate data points of different classes with maximum margin.",
+    "context": "Support Vector Machines (SVM) find the optimal hyperplane that maximally separates different classes. Support vectors are the data points closest to the hyperplane. SVMs work well with high-dimensional data and use kernel functions for non-linear separation.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "std_024",
+    "question": "What is the bias-variance tradeoff?",
+    "answer": "The bias-variance tradeoff describes the tension between model simplicity (high bias, low variance) and complexity (low bias, high variance).",
+    "context": "Bias error comes from overly simple models that underfit data. Variance error comes from overly complex models that overfit data. The goal is to find the sweet spot where total error is minimized. Increasing model complexity reduces bias but increases variance.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "std_025",
+    "question": "What is a convolutional neural network (CNN)?",
+    "answer": "CNN is a deep learning architecture designed for processing structured grid data like images, using convolutional layers to automatically learn spatial hierarchies.",
+    "context": "Convolutional Neural Networks (CNNs) are specialized for processing images. They use convolutional layers that apply learnable filters to detect features. Key components include pooling layers for spatial reduction and fully connected layers for classification.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "std_026",
+    "question": "What is a recurrent neural network (RNN)?",
+    "answer": "RNN is a neural network architecture designed for sequential data processing, with connections that form directed cycles to maintain memory of previous inputs.",
+    "context": "Recurrent Neural Networks (RNNs) process sequential data by maintaining hidden state from previous time steps. This allows them to handle variable-length sequences. However, they suffer from vanishing gradient problems, addressed by LSTMs and GRUs.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "std_027",
+    "question": "What is transfer learning?",
+    "answer": "Transfer learning applies knowledge learned from one task to improve performance on a different but related task.",
+    "context": "Transfer learning leverages pre-trained models (often on large datasets) for new tasks. The approach is to fine-tune a model trained on one problem for a different but related problem. This is common in computer vision and NLP, reducing training time and data requirements.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "std_028",
+    "question": "What is natural language processing?",
+    "answer": "NLP is a field of AI that enables computers to understand, interpret, and generate human language.",
+    "context": "Natural Language Processing (NLP) combines computational linguistics with ML to help computers understand, interpret, and generate human language. Tasks include sentiment analysis, machine translation, named entity recognition, and question answering.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "std_029",
+    "question": "What is a transformer architecture?",
+    "answer": "The transformer is a neural network architecture using self-attention mechanisms to process sequential data in parallel, enabling efficient handling of long-range dependencies.",
+    "context": "Transformer architecture, introduced in 'Attention Is All You Need', uses self-attention mechanisms instead of recurrence. It processes sequences in parallel using positional encodings. Key components include multi-head attention and feed-forward layers. Foundation for BERT and GPT models.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "std_030",
+    "question": "What is word embedding?",
+    "answer": "Word embeddings are dense vector representations of words that capture semantic relationships in a continuous vector space.",
+    "context": "Word embeddings represent words as dense vectors in continuous space. Words with similar meanings have similar vectors. Popular methods include Word2Vec, GloVe, and FastText. Embeddings enable semantic operations like king - man + woman ≈ queen.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "std_031",
+    "question": "What is attention mechanism?",
+    "answer": "Attention allows models to focus on relevant parts of input when generating output, improving performance on tasks requiring long-range dependencies.",
+    "context": "Attention mechanisms enable models to dynamically weight input elements when producing outputs. In sequence-to-sequence tasks, attention allows the decoder to focus on relevant source elements. This solves the limitation of fixed-size context representations.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "std_032",
+    "question": "What is a generative adversarial network (GAN)?",
+    "answer": "GAN consists of two neural networks (generator and discriminator) trained adversarially where the generator creates fake data and the discriminator evaluates authenticity.",
+    "context": "Generative Adversarial Networks (GANs) have two competing networks: generator creates fake samples, discriminator evaluates if samples are real or generated. They train in adversarial game until generator produces realistic outputs. Applications include image synthesis and data augmentation.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "std_033",
+    "question": "What is reinforcement learning?",
+    "answer": "Reinforcement learning trains agents to make sequential decisions by maximizing rewards through trial and error interactions with an environment.",
+    "context": "Reinforcement Learning (RL) involves an agent interacting with an environment. The agent takes actions, receives rewards, and learns a policy that maximizes cumulative rewards. Unlike supervised learning, RL doesn't require labeled data. Applications include robotics and game playing.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "std_034",
+    "question": "What is Q-learning?",
+    "answer": "Q-learning is a model-free reinforcement learning algorithm that learns the value of actions in states to find an optimal policy.",
+    "context": "Q-learning is an off-policy RL algorithm that learns action values (Q-values) through temporal difference updates. It maintains a Q-table mapping state-action pairs to expected rewards. The algorithm finds optimal policy by maximizing Q-values. Deep Q-Networks (DQN) use neural networks as function approximators.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "std_035",
+    "question": "What is feature engineering?",
+    "answer": "Feature engineering transforms raw data into meaningful features that better represent the underlying problem for machine learning models.",
+    "context": "Feature engineering involves selecting, modifying, and creating features to improve ML model performance. Techniques include normalization, binning, one-hot encoding, and domain-specific transformations. Good feature engineering often has more impact than algorithm choice.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "std_036",
+    "question": "What is hyperparameter tuning?",
+    "answer": "Hyperparameter tuning optimizes the settings that control the learning process, like learning rate and network depth, to maximize model performance.",
+    "context": "Hyperparameters are settings that control the learning process itself, not learned from data. Examples include learning rate, number of layers, and regularization strength. Tuning methods include grid search, random search, and Bayesian optimization.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "std_037",
+    "question": "What is the curse of dimensionality?",
+    "answer": "The curse of dimensionality refers to problems arising when analyzing data in high-dimensional spaces, where volume increases exponentially and data becomes sparse.",
+    "context": "As dimensionality increases, the volume of space grows exponentially, making data sparse. This affects distance metrics and requires exponentially more samples for reliable analysis. Techniques like PCA and feature selection help mitigate this issue.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "std_038",
+    "question": "What is data augmentation?",
+    "answer": "Data augmentation artificially increases training data size by applying transformations like rotation, scaling, or flipping to existing examples.",
+    "context": "Data augmentation expands training data through transformations that preserve labels. For images: rotation, flipping, cropping, color shifts. For text: synonym replacement, back-translation. This helps prevent overfitting and improves model generalization.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "std_039",
+    "question": "What is model interpretability?",
+    "answer": "Model interpretability refers to the ability to understand and explain how a machine learning model makes its predictions.",
+    "context": "Interpretability is crucial for trust and debugging in ML. Simple models like linear regression and decision trees are inherently interpretable. Complex models (deep learning) are often 'black boxes'. Techniques like SHAP and LIME help explain predictions.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "std_040",
+    "question": "What is the ROC curve?",
+    "answer": "The ROC curve plots the true positive rate against the false positive rate at various threshold settings, showing the tradeoff between sensitivity and specificity.",
+    "context": "Receiver Operating Characteristic (ROC) curve visualizes classifier performance across thresholds. It plots True Positive Rate (recall) vs False Positive Rate. The area under ROC (AUC) provides a single metric for model comparison. Random classifiers have AUC of 0.5.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "std_041",
+    "question": "What is k-nearest neighbors (KNN)?",
+    "answer": "KNN is a simple algorithm that classifies points based on the majority class among their k closest neighbors in feature space.",
+    "context": "K-Nearest Neighbors (KNN) is a lazy learning algorithm that classifies new points based on similarity to known points. The parameter k determines how many neighbors to consider. It stores entire dataset and computes distances at prediction time.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "std_042",
+    "question": "What is logistic regression?",
+    "answer": "Logistic regression is a classification algorithm that predicts the probability of a binary outcome using the logistic function.",
+    "context": "Despite its name, logistic regression is a classification algorithm, not regression. It models probability of class membership using the logistic (sigmoid) function. Output is between 0 and 1, thresholded for final prediction. It's interpretable and serves as a baseline model.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "std_043",
+    "question": "What is the difference between batch and online learning?",
+    "answer": "Batch learning trains on entire dataset at once, while online learning updates model incrementally as new data arrives.",
+    "context": "Batch (offline) learning trains on complete dataset simultaneously, requiring all data in memory. Online learning updates model incrementally with each new sample, enabling adaptation to changing data. Online learning suits large datasets and streaming data scenarios.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "std_044",
+    "question": "What is model checkpointing?",
+    "answer": "Model checkpointing saves model weights during training to enable recovery from interruptions and selection of best-performing iteration.",
+    "context": "Checkpointing saves model state (weights, optimizer state) during training. This enables resuming training if interrupted, comparing different training iterations, and selecting the best model based on validation performance rather than just final state.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "std_045",
+    "question": "What is early stopping?",
+    "answer": "Early stopping halts training when validation performance stops improving, preventing overfitting and reducing training time.",
+    "context": "Early stopping prevents overfitting by monitoring validation error. Training stops when error stops decreasing for specified number of epochs (patience). This automatic approach often works better than fixed epoch counts. It balances model fit and generalization.",
+    "difficulty": "easy"
+  },
+  {
+    "id": "std_046",
+    "question": "What is batch normalization?",
+    "answer": "Batch normalization normalizes layer inputs by scaling to have zero mean and unit variance, stabilizing and accelerating neural network training.",
+    "context": "Batch normalization normalizes activations within each mini-batch. It reduces internal covariate shift, allows higher learning rates, and has regularizing effects. Each layer learns to adapt its inputs, improving gradient flow and training stability.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "std_047",
+    "question": "What is dropout regularization?",
+    "answer": "Dropout randomly deactivates neurons during training to prevent co-adaptation and reduce overfitting.",
+    "context": "Dropout is a regularization technique where randomly selected neurons are ignored during training. This prevents neurons from relying too heavily on specific co-neurons. At test time, all neurons are used but weights are scaled. Typical dropout rates are 0.2-0.5.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "std_048",
+    "question": "What is gradient clipping?",
+    "answer": "Gradient clipping caps gradient values during training to prevent exploding gradients and stabilize training.",
+    "context": "Gradient clipping prevents exploding gradients by limiting values to a specified range. When gradients exceed threshold, they're scaled down. This is especially important in RNNs and LSTMs where gradients can grow exponentially. Common approaches clip by norm or by value.",
+    "difficulty": "hard"
+  },
+  {
+    "id": "std_049",
+    "question": "What is a learning rate schedule?",
+    "answer": "A learning rate schedule adjusts the learning rate during training, starting high and potentially decreasing over time.",
+    "context": "Learning rate schedules adjust learning rate during training. Common schedules include step decay (reduce periodically), exponential decay, cosine annealing, and warmup followed by decay. Proper scheduling helps converge faster and can improve final model performance.",
+    "difficulty": "medium"
+  },
+  {
+    "id": "std_050",
+    "question": "What is model ensembling?",
+    "answer": "Model ensembling combines predictions from multiple models to improve accuracy and robustness over single models.",
+    "context": "Ensembling combines multiple models' predictions for better performance. Simple methods include averaging (regression) and voting (classification). Advanced techniques like stacking use model predictions as inputs to a meta-model. Ensembles reduce variance and improve generalization.",
+    "difficulty": "medium"
+  }
+]

@@ -1,0 +1,93 @@
+{
+  "version": "1.0.0",
+  "description": "RAG Evaluation Benchmark Configuration",
+  
+  "datasets": {
+    "standard": {
+      "path": "evaluations/datasets/standard_eval_v1.json",
+      "count": 50,
+      "description": "Standard evaluation questions covering ML/AI fundamentals"
+    },
+    "hard": {
+      "path": "evaluations/datasets/hard_eval_v1.json",
+      "count": 20,
+      "description": "Challenging questions requiring deep technical understanding"
+    },
+    "adversarial": {
+      "path": "evaluations/datasets/adversarial_eval_v1.json",
+      "count": 20,
+      "description": "Questions designed to induce hallucinations"
+    }
+  },
+
+  "embeddings": [
+    {
+      "id": "hf-embedding",
+      "name": "HuggingFace Embeddings",
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "dimensions": 384,
+      "provider": "huggingface"
+    },
+    {
+      "id": "openai-ada",
+      "name": "OpenAI text-embedding-ada-002",
+      "model": "text-embedding-ada-002",
+      "dimensions": 1536,
+      "provider": "openai"
+    }
+  ],
+
+  "llms": [
+    {
+      "id": "huggingface",
+      "name": "HuggingFace Llama",
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "provider": "huggingface"
+    },
+    {
+      "id": "mock",
+      "name": "Mock LLM (Demo)",
+      "model": "mock",
+      "provider": "mock"
+    }
+  ],
+
+  "retrievers": [
+    {
+      "id": "chroma",
+      "name": "ChromaDB",
+      "type": "local"
+    },
+    {
+      "id": "faiss",
+      "name": "FAISS",
+      "type": "local"
+    }
+  ],
+
+  "thresholds": {
+    "context_recall": {"min": 85, "description": "Minimum 85% context recall"},
+    "context_precision": {"min": 80, "description": "Minimum 80% context precision"},
+    "mrr": {"min": 80, "description": "Minimum 80% MRR"},
+    "ndcg": {"min": 80, "description": "Minimum 80% NDCG"},
+    "hit_rate": {"min": 85, "description": "Minimum 85% hit rate at k=5"},
+    "faithfulness": {"min": 90, "description": "Minimum 90% faithfulness"},
+    "answer_relevancy": {"min": 85, "description": "Minimum 85% answer relevancy"},
+    "context_utilization": {"min": 80, "description": "Minimum 80% context utilization"},
+    "hallucination_rate": {"max": 5, "description": "Maximum 5% hallucination rate"}
+  },
+
+  "max_degradation_pct": 3,
+
+  "output": {
+    "json_path": "evaluations/reports/latest.json",
+    "md_path": "evaluations/reports/latest.md"
+  },
+
+  "ci": {
+    "enabled": true,
+    "pr_comment": true,
+    "fail_on_threshold_breach": true,
+    "fail_on_degradation": true
+  }
+}

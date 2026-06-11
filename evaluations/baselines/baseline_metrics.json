@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0",
+  "created_at": "2024-01-01T00:00:00Z",
+  "description": "Initial baseline metrics - to be replaced with first actual benchmark run",
+  "note": "Run 'python scripts/run_benchmark.py' to establish actual baseline metrics",
+  "dataset": {
+    "standard": "evaluations/datasets/standard_eval_v1.json",
+    "hard": "evaluations/datasets/hard_eval_v1.json",
+    "adversarial": "evaluations/datasets/adversarial_eval_v1.json"
+  },
+  "metrics": {
+    "context_recall": 0.0,
+    "context_precision": 0.0,
+    "mrr": 0.0,
+    "ndcg": 0.0,
+    "hit_rate": 0.0,
+    "faithfulness": 0.0,
+    "answer_relevancy": 0.0,
+    "context_utilization": 0.0,
+    "hallucination_rate": 0.0
+  },
+  "performance": {
+    "latency_ms": 0.0,
+    "cost_usd": 0.0
+  },
+  "config": {
+    "embedding_model": "pending",
+    "llm": "pending",
+    "retriever": "pending"
+  }
+}
