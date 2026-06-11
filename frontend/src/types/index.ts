@@ -1,8 +1,18 @@
+export type QuestionDifficulty = 'easy' | 'medium' | 'hard' | 'adversarial';
+export type QuestionType = 'factual' | 'inferential' | 'analytical' | 'adversarial';
+export type QuestionSource = 'content' | 'template';
+export type GenerationPreset = 'balanced' | 'hard_evaluation' | 'adversarial_heavy' | 'retrieval_stress';
+
 export interface QuestionAnswer {
   question: string;
   answer: string;
   source: string;
   context: string[];
+  difficulty?: QuestionDifficulty;
+  question_type?: QuestionType;
+  source_type?: QuestionSource;
+  traps?: string[];
+  difficulty_score?: number;
 }
 
 export interface Dataset {

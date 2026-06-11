@@ -9,6 +9,7 @@ import type {
   BenchmarkResponse,
   BenchmarkConfig,
   DashboardStats,
+  GenerationPreset,
 } from '../types';
 
 const api = axios.create({
@@ -36,6 +37,22 @@ export const datasetsApi = {
 
   delete: async (id: string): Promise<void> => {
     await api.delete(`/datasets/${id}`);
+  },
+
+  generateQuestions: async (params: {
+    document_id: string;
+    total_questions?: number;
+    distribution?: Record<string, number>;
+    preset?: GenerationPreset;
+    verify_difficulty?: boolean;
+  }): Promise<{
+    questions: import('../types').QuestionAnswer[];
+    distribution: Record<string, number>;
+    total_generated: number;
+    verified_difficulties: boolean;
+  }> => {
+    const response = await api.post('/datasets/generate-questions', params);
+    return response.data;
   },
 };
 

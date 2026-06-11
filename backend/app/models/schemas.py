@@ -1,7 +1,42 @@
 from pydantic import BaseModel, Field
-from typing import List, Optional, Dict, Any
+from typing import List, Optional, Dict, Any, Literal
 from datetime import datetime
+from enum import Enum
 from uuid import UUID
+
+
+class QuestionDifficulty(str, Enum):
+    EASY = "easy"
+    MEDIUM = "medium"
+    HARD = "hard"
+    ADVERSARIAL = "adversarial"
+
+
+class QuestionType(str, Enum):
+    FACTUAL = "factual"
+    INFERENTIAL = "inferential"
+    ANALYTICAL = "analytical"
+    ADVERSARIAL = "adversarial"
+
+
+class QuestionSource(str, Enum):
+    CONTENT = "content"
+    TEMPLATE = "template"
+
+
+class GenerationPreset(str, Enum):
+    BALANCED = "balanced"
+    HARD_EVALUATION = "hard_evaluation"
+    ADVERSARIAL_HEAVY = "adversarial_heavy"
+    RETRIEVAL_STRESS = "retrieval_stress"
+
+
+PRESET_DISTRIBUTIONS = {
+    GenerationPreset.BALANCED: {"easy": 0.4, "medium": 0.3, "hard": 0.2, "adversarial": 0.1},
+    GenerationPreset.HARD_EVALUATION: {"easy": 0.2, "medium": 0.3, "hard": 0.3, "adversarial": 0.2},
+    GenerationPreset.ADVERSARIAL_HEAVY: {"easy": 0.3, "medium": 0.2, "hard": 0.2, "adversarial": 0.3},
+    GenerationPreset.RETRIEVAL_STRESS: {"easy": 0.2, "medium": 0.4, "hard": 0.3, "adversarial": 0.1},
+}
 
 
 class QuestionAnswer(BaseModel):
@@ -9,6 +44,11 @@ class QuestionAnswer(BaseModel):
     answer: str
     source: str
     context: List[str] = []
+    difficulty: QuestionDifficulty = QuestionDifficulty.MEDIUM
+    question_type: QuestionType = QuestionType.FACTUAL
+    source_type: QuestionSource = QuestionSource.CONTENT
+    traps: List[str] = []
+    difficulty_score: Optional[float] = None
 
 
 class DatasetBase(BaseModel):
@@ -222,3 +262,19 @@ class HealthResponse(BaseModel):
     status: str
     version: str
     models_loaded: Dict[str, bool]
+
+
+class GenerateQuestionsRequest(BaseModel):
+    document_id: str
+    total_questions: int = Field(default=50, ge=10, le=200)
+    distribution: Optional[Dict[str, float]] = None
+    preset: Optional[GenerationPreset] = None
+    verify_difficulty: bool = True
+
+
+class GenerateQuestionsResponse(BaseModel):
+    questions: List[QuestionAnswer]
+    distribution: Dict[str, int]
+    total_generated: int
+    verified_difficulties: bool
+    generation_stats: Dict[str, Any] = {}

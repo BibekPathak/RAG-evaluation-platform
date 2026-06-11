@@ -9,7 +9,10 @@ from app.models.schemas import (
     DatasetCreate,
     DatasetResponse,
     DatasetUploadResponse,
-    QuestionAnswer
+    QuestionAnswer,
+    GenerateQuestionsRequest,
+    GenerateQuestionsResponse,
+    GenerationPreset
 )
 from app.services.dataset_generator import DatasetGeneratorService
 
@@ -72,6 +75,43 @@ async def upload_dataset(
         )
     finally:
         os.unlink(tmp_path)
+
+
+@router.post("/generate-questions", response_model=GenerateQuestionsResponse)
+async def generate_questions(
+    request: GenerateQuestionsRequest,
+    db = Depends(get_db)
+):
+    dataset = db.query(Dataset).filter(Dataset.id == request.document_id).first()
+
+    if not dataset:
+        raise HTTPException(status_code=404, detail="Dataset not found")
+
+    text = " ".join([q.get("answer", "") for q in dataset.questions])
+
+    if not text and not dataset.source_path:
+        raise HTTPException(status_code=400, detail="No text content available for generation")
+
+    generator = DatasetGeneratorService()
+
+    if dataset.source_path and os.path.exists(dataset.source_path):
+        text, _ = generator.extract_and_chunk(dataset.source_path, dataset.source_type)
+
+    result = generator.generate_questions(
+        text=text,
+        total_questions=request.total_questions,
+        distribution=request.distribution,
+        preset=request.preset,
+        verify_difficulty=request.verify_difficulty
+    )
+
+    return GenerateQuestionsResponse(
+        questions=[QuestionAnswer(**q.model_dump() if hasattr(q, 'model_dump') else q) for q in result["questions"]],
+        distribution=result["distribution"],
+        total_generated=result["total_generated"],
+        verified_difficulties=result["verified_difficulties"],
+        generation_stats={}
+    )
 
 
 @router.get("", response_model=List[DatasetResponse])
