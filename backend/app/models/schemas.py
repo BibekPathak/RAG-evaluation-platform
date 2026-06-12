@@ -278,3 +278,102 @@ class GenerateQuestionsResponse(BaseModel):
     total_generated: int
     verified_difficulties: bool
     generation_stats: Dict[str, Any] = {}
+
+
+class MetricChange(BaseModel):
+    old: float
+    new: float
+    change_pct: float
+    psi: float
+
+
+class DriftResult(BaseModel):
+    psi: float
+    drift_detected: bool
+    severity: str
+    metric_changes: Dict[str, MetricChange]
+    alerts: List[Dict[str, Any]]
+
+
+class DatasetVersionBase(BaseModel):
+    version_number: int
+    change_summary: Optional[str] = None
+
+
+class DatasetVersionResponse(BaseModel):
+    id: str
+    dataset_id: str
+    version_number: int
+    version_hash: str
+    question_count: int
+    drift_score: Optional[float] = None
+    drift_details: Optional[Dict[str, Any]] = None
+    created_at: datetime
+
+    class Config:
+        from_attributes = True
+
+
+class DriftAlertBase(BaseModel):
+    metric: str
+    old_value: float
+    new_value: float
+    change_pct: float
+    psi: float
+    severity: str
+
+
+class DriftAlertResponse(BaseModel):
+    id: str
+    dataset_id: str
+    dataset_version_id: str
+    dataset_name: Optional[str] = None
+    metric: str
+    old_value: float
+    new_value: float
+    change_pct: float
+    psi: float
+    severity: str
+    status: str
+    created_at: datetime
+    acknowledged_at: Optional[datetime] = None
+    resolved_at: Optional[datetime] = None
+
+    class Config:
+        from_attributes = True
+
+
+class DriftSummary(BaseModel):
+    dataset_id: str
+    dataset_name: str
+    current_version: int
+    total_versions: int
+    current_drift_score: Optional[float] = None
+    drift_detected: bool
+    active_alerts: int
+    acknowledged_alerts: int
+    resolved_alerts: int
+    recent_versions: List[DatasetVersionResponse]
+    metrics_comparison: Optional[Dict[str, MetricChange]] = None
+
+
+class DriftStats(BaseModel):
+    total_datasets: int
+    datasets_with_drift: int
+    avg_drift_score: float
+    critical_alerts: int
+    warning_alerts: int
+    total_active_alerts: int
+    recent_alerts: List[DriftAlertResponse]
+    drift_history: List[Dict[str, Any]]
+
+
+class VersionComparison(BaseModel):
+    dataset_id: str
+    dataset_name: str
+    version_a: DatasetVersionResponse
+    version_b: DatasetVersionResponse
+    metrics_a: Dict[str, float]
+    metrics_b: Dict[str, float]
+    metric_changes: Dict[str, MetricChange]
+    drift_result: DriftResult

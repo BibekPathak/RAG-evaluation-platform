@@ -4,6 +4,7 @@ import ExperimentList from './components/ExperimentList/ExperimentList';
 import BenchmarkRunner from './components/BenchmarkRunner/BenchmarkRunner';
 import DatasetManager from './components/DatasetManager/DatasetManager';
 import HallucinationDetector from './components/HallucinationDetector/HallucinationDetector';
+import DriftDashboard from './components/DriftDashboard/DriftDashboard';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
                   <Link to="/experiments" className="nav-link px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-700/50 transition-colors">Experiments</Link>
                   <Link to="/benchmark" className="nav-link px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-700/50 transition-colors">Benchmark</Link>
                   <Link to="/datasets" className="nav-link px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-700/50 transition-colors">Datasets</Link>
+                  <Link to="/drift" className="nav-link px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-700/50 transition-colors">Drift</Link>
                   <Link to="/hallucination" className="nav-link px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-700/50 transition-colors">Hallucination</Link>
                 </div>
               </div>
@@ -37,6 +39,7 @@ function App() {
             <Route path="/experiments" element={<ExperimentList />} />
             <Route path="/benchmark" element={<BenchmarkRunner />} />
             <Route path="/datasets" element={<DatasetManager />} />
+            <Route path="/drift" element={<DriftDashboard />} />
             <Route path="/hallucination" element={<HallucinationDetector />} />
           </Routes>
         </main>

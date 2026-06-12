@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
-import { TrendingUp, AlertTriangle, Clock, Activity, ChevronRight } from 'lucide-react';
+import { TrendingUp, AlertTriangle, Clock, Activity } from 'lucide-react';
 import { dashboardApi } from '../../api/client';
 import type { DashboardStats } from '../../types';
 

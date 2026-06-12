@@ -5,7 +5,7 @@ import logging
 
 from app.config import get_settings
 from app.models.database import init_db
-from app.api import datasets, evaluate, benchmark, hallucination, experiments, judge
+from app.api import datasets, evaluate, benchmark, hallucination, experiments, judge, drift
 
 settings = get_settings()
 logging.basicConfig(level=logging.INFO)
@@ -42,6 +42,7 @@ app.include_router(benchmark.router, prefix="/api/benchmark", tags=["Benchmark"]
 app.include_router(hallucination.router, prefix="/api/hallucination", tags=["Hallucination"])
 app.include_router(experiments.router, prefix="/api/experiments", tags=["Experiments"])
 app.include_router(judge.router, prefix="/api/judge", tags=["Judge"])
+app.include_router(drift.router, prefix="/api/drift", tags=["Drift Detection"])
 
 
 @app.get("/health")
